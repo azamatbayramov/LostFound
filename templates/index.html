@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% if current_user.is_authenticated %}
+        <a href="add_post" class="btn btn-secondary">Добавить пост</a>
+    {% endif %}
+
+    <h1> {{ title }} </h1>
+
+    {% include "posts_list.html" %}
+
+{% endblock %}
