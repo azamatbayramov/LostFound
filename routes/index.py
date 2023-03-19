@@ -1,13 +1,10 @@
-from flask import Flask, render_template, redirect, request, abort
-from flask_login import LoginManager, login_user, logout_user, login_required, current_user
+from flask import render_template
 from data import db_session
-from data.users import User
 from data.posts import Post
-from forms.user import RegisterForm, LoginForm
-from forms.post import PostForm
 from . import routes
 
 
+# Главная страница
 @routes.route("/")
 def index():
     db_sess = db_session.create_session()
@@ -15,6 +12,7 @@ def index():
     return render_template("index.html", posts=posts, title="Все посты")
 
 
+# Страницы с постами про потеряшки
 @routes.route("/lost")
 def lost():
     db_sess = db_session.create_session()
@@ -22,6 +20,7 @@ def lost():
     return render_template("index.html", posts=posts, title="Потеряно")
 
 
+# Страницы с постами про найденные вещи
 @routes.route("/found")
 def found():
     db_sess = db_session.create_session()
