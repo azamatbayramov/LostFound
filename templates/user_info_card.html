@@ -1,0 +1,31 @@
+<div class="card" style="width: 25rem; margin-bottom: 2rem; margin-top: 2rem">
+
+    <object data="/static/img/user_img/{{user.id}}.jpg" type="image/png">
+        <img src="/static/img/no_image.jpg" class="card-img-top" alt="User image">
+    </object>
+
+    <div class="card-body">
+        <h5 class="card-title"> {{ user.name }} </h5>
+
+        <p class="card-text"> {{ user.about }} </p>
+
+        {% if user.id == current_user.id %}
+            <div class="btn-group" role="group">
+                <a type="button" class="btn btn-outline-primary" href="/add_post">Добавить пост</a>
+
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/edit_account">Редактировать аккаунт</a></li>
+                        <li><a class="dropdown-item" href="/change_password">Сменить пароль</a></li>
+                        <li><a class="dropdown-item" href="/change_avatar">Сменить аватарку</a></li>
+                        <li><a class="dropdown-item" href="/delete_avatar">Удалить аватарку</a></li>
+                        <li><a class="dropdown-item" href="/delete_account">Удалить аккаунт</a></li>
+                    </ul>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>
