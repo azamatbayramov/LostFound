@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/"> ПОТЕРЯЛИСЬ/НАШЛИСЬ </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link active" aria-current="page" href="/">Все посты</a>
+                <a class="nav-link" href="/found">Найдено</a>
+                <a class="nav-link" href="/lost">Потеряно</a>
+            </div>
+        </div>
+
+        {% if current_user.is_authenticated %}
+
+            <div class="nav-item dropstart">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                   aria-expanded="false">
+                    Аккаунт: {{ current_user.name }}
+                </a>
+
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/my">Моя страница</a></li>
+
+                    <li><hr class="dropdown-divider"></li>
+
+                    <li><a class="dropdown-item" href="/edit_account">Редактировать</a></li>
+                    <li><a class="dropdown-item" href="/change_avatar"></a>Сменить аватарку</li>
+                    <li><a class="dropdown-item" href="/change_password">Сменить пароль</a></li>
+
+                    <li><hr class="dropdown-divider"></li>
+
+                    <li><a class="dropdown-item" href="/logout">Выйти</a></li>
+                </ul>
+            </div>
+
+        {% else %}
+
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                   aria-expanded="false">
+                    Вход/Регистрация
+                </a>
+
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/login">Вход</a></li>
+                    <li><a class="dropdown-item" href="/register">Регистрация</a></li>
+                </ul>
+            </div>
+
+        {% endif %}
+    </div>
+</nav>
