@@ -1,0 +1,27 @@
+<div class="card">
+
+    <a href="/users/{{ post.user_id }}" style="text-decoration: none">
+        <div class="card-header text-muted">
+            Автор: {{ comment.user.name }}
+        </div>
+    </a>
+
+    <div class="card-body">
+        <p class="card-text">{{ comment.text }}</p>
+    </div>
+
+    <div class="card-footer">
+        {% if comment.user_id == current_user.id %}
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                    Действия
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/edit_comment/{{ comment.id }}">Редактировать</a></li>
+                    <li><a class="dropdown-item" href="/delete_comment/{{ comment.id }}">Удалить</a></li>
+                </ul>
+            </div>
+        {% endif %}
+    </div>
+</div>
