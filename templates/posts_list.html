@@ -1,0 +1,7 @@
+<div class="row row-cols-auto g-4">
+    {% for post in posts if post.is_archived and post.user == current_user or not post.is_archived %}
+        <div class="col">
+            {% include "post_card.html" %}
+        </div>
+    {% endfor %}
+</div>
