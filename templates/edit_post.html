@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{ title }}</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+
+        <p>
+            {{ form.title.label }} <br>
+            {{ form.title(class="form-control") }} <br>
+
+            {% for error in form.title.errors %}
+                <p class="alert alert-danger" role="alert"> {{ error }} </p>
+            {% endfor %}
+        </p>
+
+        <p>
+            {{ form.text.label }} <br>
+            {{ form.text(class="form-control") }} <br>
+
+            {% for error in form.text.errors %}
+                <p class="alert alert-danger" role="alert"> {{ error }} </p>
+            {% endfor %}
+        </p>
+
+        <p>
+            <div class="form-check form-switch">
+                {{ form.is_found(class="form-check-input", role="switch") }}
+                {{ form.is_found.label }}
+            </div>
+        </p>
+
+        <p>
+            {{ form.submit(type="submit", class="btn btn-primary") }}
+        </p>
+
+        {{message}}
+    </form>
+{% endblock %}
