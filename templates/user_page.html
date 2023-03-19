@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% set posts = user.posts%}
+
+{% block content %}
+
+    {% include 'user_info_card.html' %}
+
+    {% include "posts_list.html" %}
+
+{% endblock %}
