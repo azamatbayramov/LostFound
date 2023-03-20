@@ -10,6 +10,7 @@ blueprint = Blueprint('comments_api', __name__,
 # API для использования в других приложениях
 
 
+# GET для получения списка комментариев
 @blueprint.route('/api/comments')
 def get_comments():
     session = db_session.create_session()
@@ -24,6 +25,7 @@ def get_comments():
     )
 
 
+# GET для получения одного комментария
 @blueprint.route('/api/comments/<int:comment_id>', methods=['GET'])
 def get_one_comment(comment_id):
     session = db_session.create_session()
@@ -39,6 +41,7 @@ def get_one_comment(comment_id):
     )
 
 
+# POST для создания комментария
 @blueprint.route('/api/comments', methods=['POST'])
 def create_comment():
     session = db_session.create_session()
@@ -61,6 +64,7 @@ def create_comment():
     return jsonify({'success': 'OK'})
 
 
+# DELETE для удаления комментария
 @blueprint.route('/api/comments/<int:comment_id>', methods=['DELETE'])
 def delete_comment(comment_id):
     session = db_session.create_session()
@@ -75,6 +79,7 @@ def delete_comment(comment_id):
     return jsonify({'success': 'OK'})
 
 
+# PUT для редактирования комментария
 @blueprint.route('/api/comments/<int:comment_id>', methods=['PUT'])
 def edit_comment(comment_id):
     session = db_session.create_session()

@@ -10,6 +10,7 @@ blueprint = Blueprint('users_api', __name__,
 # API для использования в других приложениях
 
 
+# GET для получения списка пользователей
 @blueprint.route('/api/users')
 def get_users():
     session = db_session.create_session()
@@ -24,6 +25,7 @@ def get_users():
     )
 
 
+# GET для получения одного пользователя
 @blueprint.route('/api/users/<int:user_id>', methods=['GET'])
 def get_one_user(user_id):
     session = db_session.create_session()
@@ -39,6 +41,7 @@ def get_one_user(user_id):
     )
 
 
+# POST для создания пользователя
 @blueprint.route('/api/users', methods=['POST'])
 def create_user():
     session = db_session.create_session()
@@ -65,6 +68,7 @@ def create_user():
     return jsonify({'success': 'OK'})
 
 
+# DELETE для удаления пользователя
 @blueprint.route('/api/users/<int:user_id>', methods=['DELETE'])
 def delete_user(user_id):
     session = db_session.create_session()
@@ -79,6 +83,7 @@ def delete_user(user_id):
     return jsonify({'success': 'OK'})
 
 
+# PUT для редактирования пользователя
 @blueprint.route('/api/users/<int:user_id>', methods=['PUT'])
 def edit_user(user_id):
     session = db_session.create_session()

@@ -10,6 +10,7 @@ blueprint = Blueprint('posts_api', __name__,
 # API для использования в других приложениях
 
 
+# GET для получения списка постов
 @blueprint.route('/api/posts')
 def get_posts():
     session = db_session.create_session()
@@ -24,6 +25,7 @@ def get_posts():
     )
 
 
+# GET для получения одного поста
 @blueprint.route('/api/posts/<int:post_id>', methods=['GET'])
 def get_one_post(post_id):
     session = db_session.create_session()
@@ -39,6 +41,7 @@ def get_one_post(post_id):
     )
 
 
+# POST для создания поста
 @blueprint.route('/api/posts', methods=['POST'])
 def create_post():
     session = db_session.create_session()
@@ -63,6 +66,7 @@ def create_post():
     return jsonify({'success': 'OK'})
 
 
+# DELETE для удаления поста
 @blueprint.route('/api/posts/<int:post_id>', methods=['DELETE'])
 def delete_post(post_id):
     session = db_session.create_session()
@@ -77,6 +81,7 @@ def delete_post(post_id):
     return jsonify({'success': 'OK'})
 
 
+# PUT для редактирования поста
 @blueprint.route('/api/posts/<int:post_id>', methods=['PUT'])
 def edit_post(post_id):
     session = db_session.create_session()
