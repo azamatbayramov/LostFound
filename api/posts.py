@@ -52,7 +52,7 @@ def create_post():
     post = Post(
         title=request.json['title'],
         text=request.json['text'],
-        user_id=request.json['user_id'],
+        user_id=int(request.json['user_id']),
         is_found=request.json['is_found']
 
     )
@@ -101,7 +101,7 @@ def edit_post(post_id):
     if text:
         post.text = text
     if user_id:
-        post.user_id = user_id
+        post.user_id = int(user_id)
     if is_found:
         post.is_found = is_found
 
