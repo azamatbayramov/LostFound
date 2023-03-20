@@ -51,6 +51,7 @@ def add_comment(id):
 
 # Редактирование комментария
 @routes.route('/edit_comment/<int:id>', methods=['GET', 'POST'])
+@login_required
 def edit_comment(id):
     # Создаем форму
     form = CommentForm()
@@ -88,6 +89,7 @@ def edit_comment(id):
 
 # Удаление комментария
 @routes.route('/delete_comment/<int:id>', methods=['GET', 'POST'])
+@login_required
 def delete_comment(id):
     # Получаем комментарий
     db_sess = db_session.create_session()
