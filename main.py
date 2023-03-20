@@ -1,3 +1,6 @@
+from flask import Flask
+from flask_login import LoginManager
+
 from routes import *
 
 # Создание приложения и подключение роутов
