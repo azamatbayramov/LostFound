@@ -56,6 +56,7 @@ def create_post():
         is_found=request.json['is_found']
 
     )
+
     session.add(post)
     session.commit()
 
