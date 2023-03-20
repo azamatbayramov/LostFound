@@ -137,6 +137,10 @@
                     <a href="/set_like?id={{post.id}}&back_url={{request.path}}&like=on" class="btn btn-outline-danger">{{post.liked_users|list|length}} likes</a>
                 {% endif %}
             </div>
+        {% else %}
+            <div class="card-body">
+                <div class="btn btn-outline-danger">{{post.liked_users|list|length}} likes</div>
+            </div>
         {% endif %}
 
         <a href="/users/{{ post.user_id }}" style="text-decoration: none">
