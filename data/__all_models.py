@@ -1,4 +1,4 @@
 from . import users
 from . import posts
 from . import post_images
-from . import comment
+from . import comments

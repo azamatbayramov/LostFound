@@ -3,7 +3,7 @@ from flask_login import current_user, login_required
 from data import db_session
 from data.posts import Post
 from . import routes
-from data.comment import Comment
+from data.comments import Comment
 from forms.comment import CommentForm
 
 
