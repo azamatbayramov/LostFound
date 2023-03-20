@@ -129,13 +129,15 @@
             </div>
         </div>
 
-        <div class="card-body">
-            {% if current_user in post.liked_users %}
-                <a href="/set_like?id={{post.id}}&back_url={{request.path}}&like=off" class="btn btn-danger">{{post.liked_users|list|length}} likes</a>
-            {% else %}
-                <a href="/set_like?id={{post.id}}&back_url={{request.path}}&like=on" class="btn btn-outline-danger">{{post.liked_users|list|length}} likes</a>
-            {% endif %}
-        </div>
+        {% if current_user.is_authenticated %}
+            <div class="card-body">
+                {% if current_user in post.liked_users %}
+                    <a href="/set_like?id={{post.id}}&back_url={{request.path}}&like=off" class="btn btn-danger">{{post.liked_users|list|length}} likes</a>
+                {% else %}
+                    <a href="/set_like?id={{post.id}}&back_url={{request.path}}&like=on" class="btn btn-outline-danger">{{post.liked_users|list|length}} likes</a>
+                {% endif %}
+            </div>
+        {% endif %}
 
         <a href="/users/{{ post.user_id }}" style="text-decoration: none">
             <div class="card-footer text-muted">
